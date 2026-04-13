@@ -222,10 +222,19 @@ async function updateStudent() {
 }
 
 // delete document
+async function deleteStudent() {
+  await Student.deleteOne({ name: "Sara" });
+  console.log("Deleted Sara");
+}
 
 try {
   await mongoose.connect(uri);
   console.log("Connected to MongoDB");
+  await createStudents();
+  await readStudents();
+  await updateStudent();
+  await deleteStudent();
+  await readStudents();
 } catch (error) {
   console.error("Error:", error.message);
 } finally {
