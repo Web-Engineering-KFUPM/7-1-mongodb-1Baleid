@@ -184,21 +184,18 @@
  *  This is the default behavior of Mongoose.
  */
 
-// import mongoose
+import mongoose from "mongoose";
 
 // establish connection
+const uri =
+  process.env.MONGO_URI ||
+  "mongodb+srv://<db_username>:<db_password>@cluster0.rygtjue.mongodb.net/TestDB";
 
-
-// define schema
-
-
-// create document
-
-
-// read document
-
-
-// update document
-
-
-// delete document
+try {
+  await mongoose.connect(uri);
+  console.log("Connected to MongoDB");
+} catch (error) {
+  console.error("Error:", error.message);
+} finally {
+  await mongoose.disconnect();
+}
