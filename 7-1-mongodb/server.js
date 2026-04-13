@@ -191,6 +191,23 @@ const uri =
   process.env.MONGO_URI ||
   "mongodb+srv://<db_username>:<db_password>@cluster0.rygtjue.mongodb.net/TestDB";
 
+// define schema
+const studentSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  major: String,
+});
+
+const Student = mongoose.model("Student", studentSchema);
+
+// create document
+
+// read document
+
+// update document
+
+// delete document
+
 try {
   await mongoose.connect(uri);
   console.log("Connected to MongoDB");
