@@ -210,6 +210,10 @@ async function createStudents() {
 }
 
 // read document
+async function readStudents() {
+  const all = await Student.find();
+  console.log(all);
+}
 
 // update document
 
